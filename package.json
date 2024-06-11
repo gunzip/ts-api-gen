@@ -1,4 +1,30 @@
 {
   "name": "ts-api-gen",
-  "packageManager": "yarn@4.1.1"
+  "private": true,
+  "scripts": {
+    "code-review": "turbo run format:check lint:check test:coverage",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "test": "turbo run test",
+    "test:coverage": "turbo run test:coverage",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "version": "changeset version",
+    "release": "changeset tag",
+    "generate": "turbo run generate"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "prettier": "3.1.1",
+    "turbo": "^2.0",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "yarn@4.1.1",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }

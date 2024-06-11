@@ -1,0 +1,35 @@
+{
+  "name": "ts-api-gen-cli",
+  "version": "1.0.0",
+  "description": "Typescript code generator from OpenAPI spec",
+  "main": "index.js",
+  "keywords": [
+    "typescript",
+    "openapi",
+    "codegen"
+  ],
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint --fix src",
+    "lint:check": "eslint src",
+    "build": "tsup-node",
+    "build:watch": "tsup-node --watch",
+    "start": "node .",
+    "start:dev": "node --env-file=.env .",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "generate:io-client": "gen-api-models --api-spec https://raw.githubusercontent.com/pagopa/io-backend/v13.0.0/openapi/generated/api_fims.yaml --no-strict --out-dir ./src/adapters/outboud/io/generated --request-types --response-decoders --client"
+  },
+  "author": "PagoPA S.p.A.",
+  "devDependencies": {
+    "@pagopa/eslint-config": "^4.0.1",
+    "@total-typescript/tsconfig": "^1.0.4",
+    "@vitest/coverage-v8": "^1.6.0",
+    "eslint": "^9.4.0",
+    "prettier": "^3.3.2",
+    "tsup": "^8.1.0",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  }
+}

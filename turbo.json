@@ -1,0 +1,29 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "inputs": ["src/**/*.ts"],
+      "outputs": ["dist/**"],
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "inputs": ["src/**/*.ts"],
+      "outputLogs": "errors-only",
+      "dependsOn": ["^test", "^build"]
+    },
+    "test:coverage": {
+      "inputs": ["src/**/*.ts"],
+      "outputLogs": "errors-only",
+      "dependsOn": ["^test", "^build"]
+    },
+    "lint": {
+      "inputs": ["src/**/*.ts"],
+      "outputs": []
+    },
+    "typecheck": {
+      "inputs": ["src/**/*.ts"],
+      "outputs": [],
+      "dependsOn": ["^build"]
+    }
+  }
+}
